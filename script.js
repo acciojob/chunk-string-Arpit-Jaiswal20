@@ -1,17 +1,19 @@
 function stringChop(str, size) {
   // your code here
-	let val = [];
+	if (!str) return []; // Handle null or empty string case
+    
+    let val = [];
     let i = 0;
-    while(i<str.length)
-    {
-        let s = i + size;  
+
+    while (i < str.length) {
         let temp = "";
-        
-        while (i < s && i < str.length) { 
+        let end = Math.min(i + size, str.length); // Ensure we don't go out of bounds
+
+        while (i < end) {
             temp += str[i];
             i++;
         }
-        
+
         val.push(temp);
     }
 
